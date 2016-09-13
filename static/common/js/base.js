@@ -1,4 +1,5 @@
-/*
+require.async(['jquery','bootstrap','metisMenu','jquery-slimscroll','bootstrap-markdown'],function($) {
+     /*
  *
  *   INSPINIA - Responsive Admin Theme
  *   version 2.4
@@ -298,4 +299,5 @@ function WinMove() {
         .disableSelection();
 }
 
-
+    // body... 
+})
