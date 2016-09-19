@@ -3,5 +3,5 @@ feather.config.merge({
         charset: 'utf-8'
     },
     
-    statics: '/static'
+    statics: ''
 });

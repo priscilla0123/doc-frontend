@@ -1,7 +1,4 @@
-module.exports =[ {
-    from: '/views',
-    to: '../doc-backend' 
-},{
-    from: '/static',
-    to: '../doc-backend'  
-}];
+module.exports ={
+    from: '/',
+    to: '../doc-backend/doc-frontend' 
+};
