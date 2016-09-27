@@ -1,7 +1,7 @@
 <nav class="navbar-default navbar-static-side" role="navigation">
     <div class="sidebar-collapse">
         <ul class="nav metismenu" id="side-menu">                    
-            <li>
+            <!-- <li>
                 <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span> <span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level collapse">
                     <li><a href="dashboard_2.html">Dashboard v.2</a></li>
@@ -131,11 +131,18 @@
                     <li><a href="notifications.html">Notifications & Tooltips</a></li>
                     <li><a href="badges_labels.html">Badges, Labels, Progress</a></li>
                 </ul>
-            </li>
+            </li> -->
 
-            <li>
+            <!-- <li>
                 <a href="grid_options.html"><i class="fa fa-laptop"></i> <span class="nav-label">Grid options</span></a>
-            </li>
+            </li> -->
+            <% if(nav) {%>
+            <% for(var i=0; i<nav.length; i++) {%>
+                <li>
+                    <a href="<%= nav[i].url %>"><i class="fa fa-laptop"></i> <span class="nav-label"><%= nav[i].name %></span></a>
+                </li> 
+            <% }} %>
+             
             
             
         </ul>
