@@ -1,0 +1,12 @@
+.wrapper-content{
+    position: absolute;
+    top:130px;
+    bottom: 130px;
+    width: 100%;    
+}
+iframe{
+    width:100%;
+    height: 90%;
+    border: none;
+    color: white;
+}

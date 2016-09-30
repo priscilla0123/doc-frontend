@@ -2,31 +2,43 @@ require.async('jquery', function($) {
     var fun = {
         init: function() {
             this.bindevent();
+            this.$nav=$('.nav');
+            this.frameBaseUrl=$('iframe').attr('src');
         },
         bindevent: function() {
             var _this=this;
-            $('.J_nav_folder').bind('click', function() { 
-                if(!$(this).parent().find('ul').length){ 
-                    _this.getMenu($(this).attr('data-url'),$(this).parent());
-                } 
-            })
+            $('.nav').on('click','.J_nav_folder',folderClick);
+            $('.nav').on('click','.J_nav_file',fileClick);
         },
-        getMenu:function(url,$obj){
-            this.ajaxService('/doc/ajax/menu'+url,'GET',{},function(data){
+        getMenu:function(url,$obj,cb){
+            this.ajaxService('/ajax/doc/menu'+url,'GET',{},function(data){
                 if(data.code==0){
                     $obj.append('<ul class="nav collapse in"></ul>');
                     $ul=$obj.find('ul');
                     data.data.forEach(function(item,i){ 
                         if(item.type=='dir'){
-                            $('<li><a class="J_nav_folder" href="javascript:;" data-url="'+item.url+'>"><i class="fa fa-folder"></i> <span class="nav-label">'+item.name+'</span><span class="fa arrow"></span></a></li>').appendTo($ul);
+                            $('<li><a class="J_nav_folder" href="javascript:;" data-url="'+item.url+'"><i class="fa fa-folder"></i> <span class="nav-label">'+item.name+'</span><span class="fa arrow"></span></a></li>').appendTo($ul);
                         }
                         else{
-                            $('<li><a class="J_nav_file" href="javascript:;" data-url="'+item.url+'>"><i class="fa fa-file-o"></i> <span class="nav-label">'+item.name+'</span></a></li>').appendTo($ul);
+                            $('<li><a class="J_nav_file" href="javascript:;" data-url="'+item.url+'"><i class="fa fa-file-o"></i> <span class="nav-label">'+item.name+'</span></a></li>').appendTo($ul);
                         } 
                     })
+                    cb&&cb();
                 } 
-            })
-
+            }) 
+        },
+        active:function(target){ 
+            this.$nav.find('li.active').removeClass('active');
+            target.addClass('active');
+            var $ul=target.find('>ul');
+            if($ul.length){
+                if($ul.hasClass('in')){
+                    $ul.removeClass('in');
+                }
+                else{
+                    $ul.addClass('in');
+                }
+            } 
         },
         ajaxService: function(url, type, data, success, always) {
             $.ajax({
@@ -48,11 +60,17 @@ require.async('jquery', function($) {
     fun.init();
 
 
-
-
-    // var fun = {
-    //     server: function() {
-    //         $.ajax('/ajax/doc/')
-    //     }
-    // }
+    function folderClick(){
+        var $subUl=$(this).parent().find('>ul');
+        var $parent=$(this).parent();
+        if(!$subUl.length){ 
+            fun.getMenu($(this).attr('data-url'),$parent);
+        }  
+        fun.active($parent);
+    } 
+    function fileClick(){
+        $('iframe').attr('src',fun.frameBaseUrl+$(this).attr('data-url')+'?view=true');
+        //alert($(this).attr('data-url'));
+        
+    }
 });

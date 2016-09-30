@@ -1,6 +1,7 @@
 <extends '../layout'>
     <!--重写content中的内容-->
     <block 'content'>
+        <link rel="stylesheet" type="text/css" href="/static/page/doc/index/index.css" />
         <div class="row border-bottom">
             <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header">
@@ -10,13 +11,14 @@
         </div>
         <widget 'breadcrumb/breadcrumb'>
         <div class="wrapper wrapper-content">
-            <div class="middle-box text-center animated fadeInRightBig">
+            <iframe src="/doc/<%=rootpath%>/viewfile"></iframe>
+            <!-- <div class="middle-box text-center animated fadeInRightBig">
                 <h3 class="font-bold">This is page content</h3>
                 <div class="error-desc">
                     You can create file here or choose one from the left part. 
                     <br /><a href="index.html" class="btn btn-primary m-t"><i class="fa fa-plus"></i> 新建 </a>
                 </div>
-            </div>
+            </div> -->
         </div>
          
     </block>
