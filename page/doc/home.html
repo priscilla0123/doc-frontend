@@ -17,44 +17,26 @@
         <span class="first-word">Document</span><span>Platform</span>
     </div>
     <div style="margin-top:300px">
-        <div class="row">
+        <div class="row"> 
+        <% if(data){data.forEach(function(item){ %> 
             <div class="col-lg-3">
-                <a href="/doc/docfordog">
+                <a href="/doc/<%=item.name%>">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
-                            <h5>文档一</h5>
+                            <h5><%=item.name%></h5>
                         </div>
-                        <div class="ibox-content">
-                            <h1 class="no-margins">40 886,200<small>个文件</small></h1>
-                            <small>34个文件夹</small>
+                        <div class="ibox-content" data-dir="<%=item.name%>">
+                            <h1 class="no-margins"><small class="filecount"></small><small>个文件</small></h1>
+                            <small><span class="foldercount"></span>个文件夹</small>
                         </div>
                     </div>
                 </a>
             </div>
-            <div class="col-lg-3">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h5>文档一</h5>
-                    </div>
-                    <div class="ibox-content">
-                        <h1 class="no-margins">40 886,200<small>个文件</small></h1>
-                        <small>34个文件夹</small>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <div class="ibox float-e-margins">
-                    <div class="ibox-title">
-                        <h5>文档一</h5>
-                    </div>
-                    <div class="ibox-content">
-                        <h1 class="no-margins">40 886,200<small>个文件</small></h1>
-                        <small>34个文件夹</small>
-                    </div>
-                </div>
-            </div>
+        <% })} %>
         </div>
     </div>
 </body>
-
+<script>
+    require.async('static/page/doc/home/home.js');
+</script>
 </html>
