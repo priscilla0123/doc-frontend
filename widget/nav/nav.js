@@ -69,7 +69,7 @@ require.async('jquery', function($) {
         fun.active($parent);
     } 
     function fileClick(){
-        $('iframe').attr('src',fun.frameBaseUrl+$(this).attr('data-url')+'?view=true');
+        $('iframe').attr('src',encodeURIComponent(fun.frameBaseUrl+$(this).attr('data-url')+'?view=true'));
         //alert($(this).attr('data-url'));
         
     }
