@@ -3,7 +3,7 @@ require.async('jquery', function($) {
         init: function() {
             this.bindevent();
             this.$nav=$('.nav');
-            this.frameBaseUrl=$('iframe').attr('src');
+            this.frameBaseUrl=$('iframe').attr('data-basesrc');
         },
         bindevent: function() {
             var _this=this;
@@ -60,7 +60,7 @@ require.async('jquery', function($) {
     fun.init();
 
 
-    function folderClick(){
+    function folderClick(){ 
         var $subUl=$(this).parent().find('>ul');
         var $parent=$(this).parent();
         if(!$subUl.length){ 
@@ -68,9 +68,9 @@ require.async('jquery', function($) {
         }  
         fun.active($parent);
     } 
-    function fileClick(){
-        $('iframe').attr('src',encodeURIComponent(fun.frameBaseUrl+$(this).attr('data-url')+'?view=true'));
-        //alert($(this).attr('data-url'));
+    function fileClick(){ 
+        //$('iframe').attr('src',encodeURIComponent(fun.frameBaseUrl+$(this).attr('data-url')+'?view=true')); 
+        $('iframe').attr('src', fun.frameBaseUrl+$(this).attr('data-url')+'?view=true'); 
         
     }
 });
