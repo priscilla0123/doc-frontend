@@ -2,6 +2,7 @@
 
 <head>
     <link href="static/common/css/bootstrap.css" rel="stylesheet">
+    <link href="static/page/doc/detail/detail.css" rel="stylesheet">
     <style type="text/css">
     html {
         padding: 25px;
@@ -34,8 +35,9 @@
     }
     </style>
 </head>
-
-<body>
+<a name="navline_istart"></a>
+<body> 
+    
     <% if(data.length){ %>
         <%-data %>
     <% }else{%>
@@ -47,6 +49,27 @@
             </div>
         </div>
     <% } %>
+    <a name="navline_iend"></a>
+    <a name=""></a>
+    <div class="navLine">
+        <div class="line start">
+            <a href="#navline_istart"><div class="point"></div></a>
+            <div class="tag">页首</div>
+        </div>
+        <div class="line">
+            <a href="#test2"><div class="point"></div></a>
+            <div class="tag">test</div>
+        </div> 
+        <div class="line cur small">
+            <a href="#test3"><div class="point"></div></a>
+            <div class="tag">selected</div>
+        </div>   
+        <div class="line end">
+            <a href="#navline_iend"><div class="point"></div></a>
+            <div class="tag">页尾</div>
+        </div>  
+    </div>
+    
 </body>
 
 </html>
