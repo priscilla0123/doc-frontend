@@ -37,6 +37,13 @@
             margin-left: 5px;
         } 
     }
+    .xsmall{
+       .point{
+            width: 6px;
+            height: 6px; 
+            margin-left: 7px;
+        }  
+    }
     .end{
         .point{
             &:after{

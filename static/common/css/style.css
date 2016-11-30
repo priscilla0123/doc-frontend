@@ -4471,10 +4471,7 @@ body.mini-navbar.fixed-sidebar .logo-element {
 }
 .lock-word {
   z-index: 10;
-  position: absolute;
-  top: 110px;
-  left: 50%;
-  margin-left: -470px;
+   
 }
 .lock-word span {
   font-size: 100px;

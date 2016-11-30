@@ -23,6 +23,10 @@ require.async('jquery', function($) {
                     $(item).find('.foldercount').html(result);
                 }); 
             })
+
+            $('.HB_cover').bind('mouseout',function () {
+                alert(11);
+            })
         },
         getFileCount:function(path,cb){
             this.ajaxService('/ajax/doc/file/count','GET',{path:path},function(result){
